@@ -1,0 +1,337 @@
+@import "@fontsource/poppins";
+
+:root{
+    --white: white;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  @media (max-width: 768px) { 
+    html {
+      font-size: 56%;
+    }
+  }
+  
+  html, body {
+    font-family: "Poppins", sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  input, textarea {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    font-size: 1.6rem;
+  }
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-text{
+  justify-content:left; margin-top:auto;margin-bottom:auto;padding-left:10px;
+}
+
+.logo-wrap{
+  display: flex;
+}  
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("../Asset/login_background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    position: relative;
+    width: 40rem;
+    height: 44rem;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    overflow: hidden;
+  
+    transform: scale(0);
+    transition: transform 0.3s ease, height 0.2s;
+  }
+  
+  .container.active-popup {
+    transform: scale(1);
+  }
+  
+  .container.active {
+    height: 520px;
+  }
+  
+  .container > span {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--white); 
+    font-size: 2.4rem;
+    color: var(--white); 
+    font-weight: 800;
+    cursor: pointer;
+  
+    display: flex;
+    align-items: center;
+  }  
+
+  .form-box {
+    width: 100%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .form-box.login {
+    transition: transform 0.18s ease;
+    transform: translateX(0);
+  }
+  
+  .active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+  }
+  
+  .form-box.register {
+    position: absolute;
+    transform: translateX(400px);
+    transition: none;
+  }
+  
+  .active .form-box.register {
+    transition: transform 0.18s ease;
+    transform: translateX(0);
+  }
+  
+  .form-box h2 {
+    font-size: 2.4rem;
+    text-align: center;
+    color: var(--white); 
+  }
+  
+  .form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .form-box form .input-box {
+    position: relative;
+    width: 100%;
+    border-bottom: 2px solid var(--white); 
+    padding: 1rem;
+  }
+  
+  .form-box form .input-box span {
+    position: absolute;
+    right: 8px;
+    font-size: 2rem;
+    color: var(--white); 
+  }
+  
+  .form-box form .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 30px 0 0px;
+    font-size: 1.5rem;
+    color: var(--white); 
+    font-weight: 500;
+  }
+  
+  .form-box form .input-box input:focus ~ label,
+  .form-box form .input-box input:valid ~ label {
+    top: -5px;
+    font-size: 1.2rem;
+  }
+  
+  .form-box form .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: var(--white); 
+    pointer-events: none;
+    font-weight: 500;
+    transition: 0.2s;
+  }
+  
+  .form-box form .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+  
+  .form-box form .remember-forgot label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white); 
+    user-select: none;
+  }
+  
+  .form-box form .remember-forgot label input {
+    accent-color: var(--white); 
+  }
+  
+  .form-box form .remember-forgot a {
+    color: var(--white); 
+  }
+  
+  .form-box form .remember-forgot a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-box form button {
+    height: 4.5rem;
+    background-color: var(--white); 
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--white); 
+    font-size: 1.6rem;
+    font-family: "Poppins";
+  }
+  
+  .form-box form .login-register {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--white); 
+  }
+  
+  .form-box form .login-register a {
+    color: var(--white); 
+    font-weight: 600;
+  }
+  
+  .form-box form .login-register a:hover {
+    text-decoration: underline;
+  }
+  
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+  }
+  
+  header h2 {
+    font-size: 2.4rem;
+    color: var(--white); 
+    user-select: none;
+  }
+  
+  header nav {
+    display: flex;
+    align-items: center;
+    gap: 2.8rem;
+  }
+  
+  header nav button {
+    padding: 0.6rem 4rem;
+    background: transparent;
+    border: 2px solid var(--white); 
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: var(--white); 
+    font-family: "Poppins";
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  header nav button:hover {
+    background: var(--white); 
+    color: var(--white); 
+  }
+  
+  .close-popup{
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 0px 15px;
+  }
+
+  .main{
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .typewrite{
+    width: 27ch;
+    animation: typing 2s steps(27), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 5em;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+  
